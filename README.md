@@ -1,4 +1,5 @@
 https://coursehunter.net/course/prodvinutye-react-patterny
+https://github.com/kentcdodds/advanced-react-patterns-v2
 
 ====================================================
 
