@@ -1,3 +1,7 @@
+https://coursehunter.net/course/prodvinutye-react-patterny
+
+====================================================
+
 # Advanced React Patterns v2
 
 👋 hi there! My name is [Kent C. Dodds](https://kentcdodds.com)! This is a
