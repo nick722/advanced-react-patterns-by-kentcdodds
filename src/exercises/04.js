@@ -15,38 +15,43 @@ class Toggle extends React.Component {
       },
     )
   render() {
-    const {on} = this.state
-    return (
-      <>
-        {this.props.children({
-          on: on,
-          toggle: this.toggle,
-        })}
-      </>
-    )
+    return this.props.children({
+      on: this.state.on,
+      toggle: this.toggle,
+    })
   }
+}
+
+function OriginalToggle(props) {
+  return (
+    <Toggle {...props}>
+      {({on, toggle}) => <Switch on={on} onClick={toggle} />}
+    </Toggle>
+  )
 }
 
 // Don't make changes to the Usage component. It's here to show you how your
 // component is intended to be used and is used in the tests.
 // You can make all the tests pass by updating the Toggle component.
+
 function Usage({
   onToggle = (...args) => console.log('onToggle', ...args),
 }) {
-  return (
-    <Toggle onToggle={onToggle}>
-      {({on, toggle}) => (
-        <div>
-          {on ? 'The button is on' : 'The button is off'}
-          <Switch on={on} onClick={toggle} />
-          <hr />
-          <button aria-label="custom-button" onClick={toggle}>
-            {on ? 'on' : 'off'}
-          </button>
-        </div>
-      )}
-    </Toggle>
-  )
+  return <OriginalToggle onToggle={onToggle} />
+  // return (
+  //   <Toggle onToggle={onToggle}>
+  //     {({on, toggle}) => (
+  //       <div>
+  //         {on ? 'The button is on' : 'The button is off'}
+  //         <Switch on={on} onClick={toggle} />
+  //         <hr />
+  //         <button aria-label="custom-button" onClick={toggle}>
+  //           {on ? 'on' : 'off'}
+  //         </button>
+  //       </div>
+  //     )}
+  //   </Toggle>
+  // )
 }
 Usage.title = 'Render Props'
 
